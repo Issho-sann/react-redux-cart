@@ -1,18 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { ADD_TO_CART } from '../store/actions'
+import { ADD_TO_CART, QUERY_PRODUCT_LIST } from '../store/actions'
 
 const mapStateToProps = state => ({ productList: state.productList })
 
 const mapDispatchToProps = dispatch => ({
     addToCart: item => {
         dispatch(ADD_TO_CART({ ...item }))
+    },
+    queryProductList: () => {
+        dispatch(QUERY_PRODUCT_LIST())
     }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(
     class extends React.Component {
+        componentDidMount() {
+            this.props.queryProductList()
+        }
         render() {
             return (
                 <>

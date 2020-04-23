@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { SETTLEMENT } from '../store/actions'
+import { SETTLEMENT, QUERY_PRODUCT_IN_CART } from '../store/actions'
 
 const mapStateToProps = state => {
     return {
@@ -14,6 +14,9 @@ const mapDispatchToProps = dispatch => {
     return {
         settlement: () => {
             dispatch(SETTLEMENT())
+        },
+        queryProductInCart: () => {
+            dispatch(QUERY_PRODUCT_IN_CART())
         }
     }
 }
@@ -23,6 +26,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(
     class extends React.Component {
         static defaultProps = {
             productListInCart: []
+        }
+        componentDidMount() {
+            this.props.queryProductInCart()
         }
         render() {
             return (

@@ -2,31 +2,12 @@
  * @Description: 
  * @Author: linqibin
  * @Date: 2020-04-20 14:19:48
- * @LastEditTime: 2020-04-20 19:41:35
+ * @LastEditTime: 2020-04-21 11:16:28
  * @LastEditors: linqibin
  */
 import { combineReducers } from 'redux'
 
-const defaultProductList = [
-    {
-        id: 1,
-        name: 'ipad mini',
-        total: 7,
-        price: 2000
-    }, {
-        id: 2,
-        name: 'mackbook pro',
-        total: 12,
-        price: 10000
-    }, {
-        id: 3,
-        name: 'mackbook air',
-        total: 6,
-        price: 5500
-    }
-]
-
-const productList = (state = defaultProductList, action) => {
+const productList = (state = [], action) => {
     switch (action.type) {
         case 'ADD_TO_CART':
             return state.map(item => {
@@ -35,6 +16,8 @@ const productList = (state = defaultProductList, action) => {
                 }
                 return { ...item }
             })
+        case 'DEFAULT_PRODUCT_LIST':
+            return action.data
     
         default:
             return state
@@ -67,6 +50,9 @@ const productListInCart = (state = [], action) => {
         
         case 'SETTLEMENT':
             return []
+
+        case 'DEFAULT_PRODUCT_IN_CART':
+            return action.data
             
         default:
             return state
@@ -83,6 +69,13 @@ const amount = (state = 0, action) => {
                 return state
             }
             return state + action.price
+
+        case 'DEFAULT_PRODUCT_IN_CART':
+            let amount = 0
+            action.data.forEach(item => {
+                amount += item.price * item.total
+            })
+            return amount
     
         default:
             return state
