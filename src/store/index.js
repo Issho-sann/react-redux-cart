@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: linqibin
  * @Date: 2020-04-20 14:20:18
- * @LastEditTime: 2020-04-21 10:40:56
+ * @LastEditTime: 2020-04-26 10:38:18
  * @LastEditors: linqibin
  */
 import { createStore, applyMiddleware } from 'redux'
@@ -13,6 +13,8 @@ const store = createStore(
     reducer,
     applyMiddleware(thunk)
 )
+
+console.log(store.getState())
 
 store.subscribe(() => {
     const state = store.getState()

@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { ADD_TO_CART, QUERY_PRODUCT_LIST } from '../store/actions'
+import { ADD_TO_CART, QUERY_PRODUCT_LIST } from '../store/product/actions'
 
-const mapStateToProps = state => ({ productList: state.productList })
+const mapStateToProps = state => ({ productList: state.Product.productList })
 
 const mapDispatchToProps = dispatch => ({
     addToCart: item => {

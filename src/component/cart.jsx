@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { SETTLEMENT, QUERY_PRODUCT_IN_CART } from '../store/actions'
+import { SETTLEMENT, QUERY_PRODUCT_IN_CART } from '../store/carts/actions'
 
 const mapStateToProps = state => {
+    const { amount, productListInCart } = state.Carts
     return {
-        amount: state.amount,
-        productListInCart: state.productListInCart
+        amount,
+        productListInCart
     }
 }
 
