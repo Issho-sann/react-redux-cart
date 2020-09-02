@@ -17,7 +17,8 @@ const defaultProductList = [
     }
 ]
 
-const queryProductList = async () => {
+const queryProductList = async params => {
+    console.log(params)
     return await new Promise(resolve => {
         setTimeout(() => {
             resolve(defaultProductList)

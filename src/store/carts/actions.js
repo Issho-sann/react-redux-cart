@@ -1,11 +1,13 @@
-import Carts from './api'
+// import Carts from './api'
 
-export const SETTLEMENT = action => ({ type: 'SETTLEMENT', ...action })
+export const SETTLEMENT = { type: 'SETTLEMENT' }
 
-export const DEFAULT_PRODUCT_IN_CART = data => ({ type: 'DEFAULT_PRODUCT_IN_CART', data })
+export const DEFAULT_PRODUCT_IN_CART = { type: 'DEFAULT_PRODUCT_IN_CART' }
 
-export const QUERY_PRODUCT_IN_CART = () => (async dispatch => {
-    console.log('QUERY_PRODUCT_IN_CART：loading...')
-    const res = await Carts.queryProductInCart()
-    return dispatch(DEFAULT_PRODUCT_IN_CART(res))
-})
+export const QUERY_PRODUCT_IN_CART = { type: 'QUERY_PRODUCT_IN_CART' }
+
+// export const QUERY_PRODUCT_IN_CART = async dispatch => {
+//     console.log('QUERY_PRODUCT_IN_CART：loading...')
+//     const data = await Carts.queryProductInCart()
+//     return dispatch({ ...DEFAULT_PRODUCT_IN_CART, data })
+// }

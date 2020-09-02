@@ -14,10 +14,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         settlement: () => {
-            dispatch(SETTLEMENT())
+            dispatch(SETTLEMENT)
         },
         queryProductInCart: () => {
-            dispatch(QUERY_PRODUCT_IN_CART())
+            dispatch(QUERY_PRODUCT_IN_CART)
         }
     }
 }

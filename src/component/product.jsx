@@ -7,10 +7,10 @@ const mapStateToProps = state => ({ productList: state.Product.productList })
 
 const mapDispatchToProps = dispatch => ({
     addToCart: item => {
-        dispatch(ADD_TO_CART({ ...item }))
+        dispatch({...ADD_TO_CART, ...item})
     },
     queryProductList: () => {
-        dispatch(QUERY_PRODUCT_LIST())
+        dispatch(QUERY_PRODUCT_LIST)
     }
 })
 
